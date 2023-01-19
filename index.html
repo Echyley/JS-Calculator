@@ -6,51 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="src/style.css">
-
-    <style>
-        
-        }
-    </style>
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
     <div class="wrapper">
-        
-        <div id="body">
-            <h1>Epic Calculator</h1>
+
+        <div id="Cbody">
+            <h1 class="rainbow">Calculator</h1>
 
             <div class="calculator">
-                <h1>Calculator</h1>
-                <p id="result">Result</p>
+
+                <p id="result"></p>
                 <table>
                     <tr>
-                        <td class="bBody" ><button class="buttonSym">C</button></td>
-                        <td class="bBody"><button class="buttonSym"><</button></td>
-                        <td class="bBody"><button class="buttonSym">/</button></td>
-                        <td class="bBody"><button class="buttonSym">*</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="clean()">C</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="back()">↩</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="insert('/')">/</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="insert('*')">*</button></td>
                     </tr>
                     <tr>
-                        <td class="bBody"><button class="button">7</button></td>
-                        <td class="bBody"><button class="button">8</button></td>
-                        <td class="bBody"><button class="button">9</button></td>
-                        <td class="bBody"><button class="buttonSym">-</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('7')">7</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('8')">8</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('9')">9</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="insert('-')">-</button></td>
                     </tr>
                     <tr>
-                        <td class="bBody"><button class="button">4</button></td>
-                        <td class="bBody"><button class="button">5</button></td>
-                        <td class="bBody"><button class="button">6</button></td>
-                        <td class="bBody"><button class="buttonSym">+</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('4')">4</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('5')">5</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('6')">6</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="insert('+')">+</button></td>
                     </tr>
                     <tr>
-                        <td class="bBody"><button class="button">1</button></td>
-                        <td class="bBody"><button class="button">2</button></td>
-                        <td class="bBody"><button class="button">3</button></td>
-                        <td class="bBody" rowspan="2"><button class="buttonSymResult">=</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('1')">1</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('2')">2</button></td>
+                        <td class="bBody"><button class="button" onclick="insert('3')">3</button></td>
+                        <td class="bBody" rowspan="2"><button class="buttonSymResult" onclick="mathIt()">=</button></td>
                     </tr>
                     <tr>
-                        <td class="bBody" colspan="2" ><button class="button" style="width: 11vh; ">0</button></td>
-                        <td class="bBody"><button class="buttonSym">.</button></td>
+                        <td class="bBody" colspan="2"><button class="button" style="width: 11vh"
+                                onclick="insert('0')">0</button></td>
+                        <td class="bBody"><button class="buttonSym" onclick="insert('.')">.</button></td>
                     </tr>
                 </table>
             </div>
@@ -58,6 +54,26 @@
         </div>
 
     </div>
+
+    <script>
+        function insert(num) {
+            var numero = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = numero + num;
+        }
+        function clean() { document.getElementById('result').innerHTML = "" };
+
+        function back() {
+            var result = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = result.substring(0, result.length - 1);
+        }
+        function mathIt() {
+            var result = document.getElementById('result').innerHTML;
+            if (result) {
+                document.getElementById('result').innerHTML = eval(result);
+            }
+        }
+    </script>
+
 </body>
 
 </html>
