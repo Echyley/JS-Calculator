@@ -7,7 +7,6 @@
 .wrapper {
     background-image: radial-gradient(crimson, rgb(57, 5, 16), black);
     text-align: center;
-    padding: 10vh;
 }
 
 #Cbody {
@@ -98,10 +97,11 @@
 .rainbow {
     text-align: center;
     text-decoration: underline;
-    font-size: 32px;
+    font-size: 50px;
     font-family: monospace;
     letter-spacing: 5px;
-    animation: colorRotate 6s linear 0s infinite;
+    animation: colorRotate 6s linear 0s infinite, float 5s ease-in-out infinite;
+    padding: 13vh;
 }
 
 @keyframes colorRotate {
@@ -124,4 +124,17 @@
     100% {
         color: #6666ff;
     }
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-30px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+    
 }
